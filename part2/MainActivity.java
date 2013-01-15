@@ -97,9 +97,11 @@ public class MainActivity extends Activity {
 		            }
 
 		            //Log.i("HELP", String.valueOf(j));
-		            j += 7;
+		            j += 8;
 		            
-		            while (page.charAt(j) != ';') {
+		            while ((page.charAt(j) >= 'à' && page.charAt(j) <= 'ÿ') ||
+		            		(page.charAt(j) >= 'À' && page.charAt(j) <= 'ß') ||
+		            		page.charAt(j) == '.' || page.charAt(j) == ',' || page.charAt(j) == ' ') {
 		            	ans += page.charAt(j);
 		            	j++;
 		            }
@@ -121,8 +123,10 @@ public class MainActivity extends Activity {
 		public void run() {
 
 			try {
-				String s = translate("Development");
+				
+				String s = translate("Attract");
 				System.out.println(s);
+				Log.i("ANSWER", s);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

@@ -78,12 +78,15 @@ public class MainActivity extends Activity {
 	            }
 
 	            //Log.i("HELP", String.valueOf(j));
-	            j += 7;
-	            
-	            while (page.charAt(j) != ';') {
-	            	ans += page.charAt(j);
-	            	j++;
-	            }
+	    
+		            j += 8;
+		            
+		            while ((page.charAt(j) >= 'à' && page.charAt(j) <= 'ÿ') ||
+		            		(page.charAt(j) >= 'À' && page.charAt(j) <= 'ß') ||
+		            		page.charAt(j) == '.' || page.charAt(j) == ',' || page.charAt(j) == ' ') {
+		            	ans += page.charAt(j);
+		            	j++;
+		            }
 	            
 	          //  Log.i("HELP", ans);
 	            } finally {
